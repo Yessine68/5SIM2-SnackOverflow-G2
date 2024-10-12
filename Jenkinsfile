@@ -1,10 +1,6 @@
 pipeline {
     agent any
     
-    triggers {
-        githubPush()
-    }
-    
     environment {
         DOCKER_IMAGE = "yessine68/5sim2-snackoverflow-g2"
         DOCKER_TAG = "${BUILD_NUMBER}"
@@ -52,6 +48,12 @@ pipeline {
             steps {
                 echo "Déploiement de l'image ${DOCKER_IMAGE}:${DOCKER_TAG}"
             }
+        }
+    }
+    
+    post {
+        always {
+            sh 'docker logout'
         }
     }
 }
