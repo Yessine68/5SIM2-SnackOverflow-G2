@@ -24,12 +24,4 @@ pipeline {
             }
         }
     }
-    
-    post {
-        failure {
-            mail to: 'yessine.jarray@esprit.tn',
-                 subject: "Échec de la construction : ${currentBuild.fullDisplayName}",
-                 body: "La construction a échoué. Veuillez vérifier : ${env.BUILD_URL}"
-        }
-    }
 }
