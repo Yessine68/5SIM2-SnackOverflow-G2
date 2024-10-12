@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Récupération du code') {
             steps {
-                git 'https://github.com/Yessine68/5SIM2-SnackOverflow-G2.git'
+                git branch: 'main', url: 'https://github.com/Yessine68/5SIM2-SnackOverflow-G2.git'
             }
         }
         
